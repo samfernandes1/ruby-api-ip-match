@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'json'
 require 'dotenv/load'
-require_relative 'database/db'
+require_relative 'ip_info'
 
 
 post '/' do
@@ -9,7 +9,7 @@ post '/' do
 
     ip_company = JSON.parse request.body.read
 
-    result = Mysql_connect.get_match_ip(ip_company['ip_value'])
+    result = GetInfoIp.get_info(ip_company['ip_value'])
 
-    result.first.to_json
+    result.to_s
 end
