@@ -1,17 +1,20 @@
 require 'sinatra'
 require 'json'
 require 'dotenv/load'
+require 'pry'
 require_relative './database/database_conf.rb'
 
 
-post '/' do
-    content_type :json
+post '/getCompanyAccess' do
 
-    position = JSON.parse request.body.read
+  content_type :json
 
-    latitude = position['lat']
-    longitude = position['lon']
+  object = JSON.parse(request.body.read)
 
-    latitude.to_s
-    longitude.to_s
+  latitude = object['lat']
+  longitude = object['lon']
+
+  latitude.to_s
+  longitude.to_s
+
 end

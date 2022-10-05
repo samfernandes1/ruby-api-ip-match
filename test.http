@@ -1,0 +1,8 @@
+POST http://localhost:4567/getCompanyAcess
+Content-Type: application/json
+
+{
+  "teste": "oi"
+}
+
+###
