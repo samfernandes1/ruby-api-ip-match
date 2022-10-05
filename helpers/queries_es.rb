@@ -41,7 +41,7 @@ def handle_result(result)
   companies = result["hits"]["hits"].map do |hit|
     { 
       cnpj: hit["_source"]["nu_cnpj"],
-      endereco: "#{hit["_source"]["no_municipio"] ',' hit["_source"]["sg_uf"]}, #{hit["_source"]["nu_cep"]}",
+      endereco: "#{hit["_source"]["no_municipio"]}, #{hit["_source"]["sg_uf"]}, #{hit["_source"]["nu_cep"]}",
       fantasy_name: hit["_source"]["no_fantasia"],
       no_pessoa: hit["_source"]["no_pessoa"]
     }
