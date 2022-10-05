@@ -42,7 +42,7 @@ def handle_result(result)
     { 
       cnpj: hit["_source"]["nu_cnpj"],
       endereco: "#{hit["_source"]["no_municipio"], hit["_source"]["sg_uf"]}, #{hit["_source"]["nu_cep"]}",
-      fantasy_name: hit["_source"]["no_fantasia"]
+      fantasy_name: hit["_source"]["no_fantasia"],
       no_pessoa: hit["_source"]["no_pessoa"]
     }
   end
