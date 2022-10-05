@@ -12,6 +12,6 @@ post '/' do
     latitude = position['lat']
     longitude = position['lon']
 
-    latitude.to_s
-    longitude.to_s
 end
+
+puts @client
