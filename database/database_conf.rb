@@ -1,7 +1,6 @@
 require 'elasticsearch'
 require 'dotenv/load'
 
-
 HOST_ES = ENV['HOST_ES']
 PORT_ES = ENV['PORT_ES']
 

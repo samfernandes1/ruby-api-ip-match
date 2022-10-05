@@ -1,16 +1,22 @@
 require 'sinatra'
 require 'json'
-require 'dotenv/load'
-require_relative './database/database_conf.rb'
+require 'pry'
+require_relative './database/database_conf'
+require_relative './helpers/gmaps'
+require_relative './helpers/queries_es'
 
+post '/getCompanyAccess' do
 
-post '/' do
-    content_type :json
+  content_type :json
 
-    position = JSON.parse request.body.read
+  object = JSON.parse(request.body.read)
 
-    latitude = position['lat']
-    longitude = position['lon']
+  latitude = object['lat']
+  longitude = object['long']
+
+  road, district, city, cep = getInfosGmaps(latitude, longitude)
+
+  return get_company_by_cep(cep).to_json
 
 end
 
