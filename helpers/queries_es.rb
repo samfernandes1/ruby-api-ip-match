@@ -1,3 +1,6 @@
+require_relative '../database/database_conf.rb'
+
+
 def get_company_by_cep(cep)
   query = {
     "size": 15,
@@ -32,7 +35,7 @@ def get_company_by_cep(cep)
     }
   }
 
-  result = @client.search(body: query, index: ENV[:INDEX_ES])
+  result = $client.search(body: query, index: ENV["INDEX_ES"])
 
   return handle_result(result)
 end
