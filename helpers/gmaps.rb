@@ -20,6 +20,15 @@ def getInfosGmaps(lat, long)
   object_return = object_return.first.split("ed(").last.split(");").first
   object_return = JSON.parse(object_return, symbolize_names: true)
 
-  binding.pry
+  address = object_return[21][3][13]
+
+  list_address = address.split(",")
+
+  road = list_address[0]
+  district = list_address[1]
+  city = list_address[2]
+  cep = list_address[3]
+
+  return road, district, city, cep
 
 end

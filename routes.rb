@@ -13,9 +13,6 @@ post '/getCompanyAccess' do
   latitude = object['lat']
   longitude = object['long']
 
-  latitude.to_s
-  longitude.to_s
-
-  infos = getInfosGmaps(latitude, longitude)
+  road, district, city, cep = getInfosGmaps(latitude, longitude)
 
 end
