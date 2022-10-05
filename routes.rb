@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'json'
 require 'pry'
-require_relative './database/database_conf'
 require_relative './helpers/gmaps'
 require_relative './helpers/queries_es'
 
