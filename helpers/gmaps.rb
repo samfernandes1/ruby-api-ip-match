@@ -27,7 +27,7 @@ def getInfosGmaps(lat, long)
   road = list_address[0]
   district = list_address[1]
   city = list_address[2]
-  cep = list_address[3]
+  cep = list_address[2].gsub(/\D/, '')
 
   return road, district, city, cep
 
