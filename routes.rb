@@ -1,17 +1,17 @@
 require 'sinatra'
 require 'json'
 require 'dotenv/load'
-# require_relative 'ip_info'
-# require_relative 'hurricane'
-require_relative 'bgpview'
+require_relative './database/database_conf.rb'
 
 
 post '/' do
-    # content_type :json
+    content_type :json
 
-    ip_company = JSON.parse request.body.read
+    position = JSON.parse request.body.read
 
-    result = BgpView.get_info(ip_company['ip_value'])
+    latitude = position['lat']
+    longitude = position['lon']
 
-    result.to_s
+    latitude.to_s
+    longitude.to_s
 end
