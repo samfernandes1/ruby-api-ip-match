@@ -1,4 +1,5 @@
 require 'sinatra'
+require "sinatra/cors"
 require 'json'
 require 'pry'
 require_relative './helpers/gmaps'
@@ -6,6 +7,10 @@ require_relative './helpers/queries_es'
 
 set port: 7541
 set bind: "65.108.9.219"
+
+set :allow_origin, "*"
+set :allow_methods, "POST"
+set :allow_headers, "content-type"
 
 post '/getCompanyAccess' do
 
@@ -23,5 +28,3 @@ post '/getCompanyAccess' do
 rescue => err
   return "Ocorreu um erro"
 end
-
-puts @client
